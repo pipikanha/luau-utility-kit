@@ -1,33 +1,33 @@
-local Debounce =
-Debounce ._ keys =
+local Debounce = {}
+Debounce._keys = {}
 
-function Debounce: Add(key: any, duration: number? ): ()
-local duration: number = duration or 1
-self ._ keys[key] = tick() + duration
+	function Debounce: Add(key: any, duration: number? ): ()
+		local duration: number = duration or 1
+		self._keys[key] = tick() + duration
 
-end
+	end
 
 function Debounce: Remove(key: any): ()
-self ._ keys [key] = nil
+	self._keys [key] = nil
 
 end
 
 function Debounce: Check(key: any): boolean
-if not self ._ keys[key] or tick() >= self ._ keys[key] then
-self ._ keys [key] = nil
-return true
-else
-return false
+	if not self._keys[key] or tick() >= self._keys[key] then
+		self._keys [key] = nil
+		return true
+	else
+		return false
 
-end
+	end
 
 end
 
 function Debounce: WaitFor(key: any): ()
-while not self: Check(key) do
-task.wait()
+	while not self: Check(key) do
+		task.wait()
 
-end
+	end
 
 end
 
