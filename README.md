@@ -1,10 +1,8 @@
 # Roblox Utils
 
-Utility modules for Roblox (Luau).
+Utility scripts for Roblox (Luau).
 
 ---
-
-## Modules
 
 ### Debounce
 
